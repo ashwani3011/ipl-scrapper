@@ -47,6 +47,25 @@ function extractMatchDetails(html) {
     // console.log(
     //   `${teamName} | ${oponentName} | ${venue} | ${date} | ${result}`
     // );
+    //player all details of the inning
+    let currentInning = $(scorecardTables[i]);
+    let allRows = currentInning.find(".table.batsman tbody tr");
+
+    for (let j = 0; j < allRows.length; j++) {
+      let allCols = $(allRows[j]).find("td");
+      let isWorthy = $(allCols[0]).hasClass("batsman-cell");
+      if (isWorthy == true) {
+        // console.log(allCols.text());
+        //       Player  runs balls fours sixes sr
+        let playerName = $(allCols[0]).text().trim();
+        let runs = $(allCols[2]).text().trim();
+        let balls = $(allCols[3]).text().trim();
+        let fours = $(allCols[5]).text().trim();
+        let sixes = $(allCols[6]).text().trim();
+        let sr = $(allCols[7]).text().trim();
+        console.log(`${playerName} ${runs} ${balls} ${fours} ${sixes} ${sr}`);
+      }
+    }
   }
   //   console.log(htmlString);
 }
