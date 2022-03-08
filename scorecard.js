@@ -10,7 +10,11 @@ const url =
 
 const request = require("request");
 const cheerio = require("cheerio");
-request(url, cb);
+
+function getPlayerAllDetails(url) {
+  request(url, cb);
+}
+
 function cb(err, response, html) {
   if (err) {
     console.log(err);
@@ -69,3 +73,7 @@ function extractMatchDetails(html) {
   }
   //   console.log(htmlString);
 }
+
+module.exports = {
+  getPlayerAllDetails: getPlayerAllDetails,
+};
