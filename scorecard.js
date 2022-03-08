@@ -34,9 +34,19 @@ function extractMatchDetails(html) {
   let scorecardTables = $(
     ".card.content-block.match-scorecard-table .Collapsible"
   );
-  let htmlString = "";
+  //   let htmlString = "";
   for (let i = 0; i < scorecardTables.length; i++) {
-    htmlString += $(scorecardTables[i]).html();
+    // htmlString += $(scorecardTables[i]).html();
+
+    // team and oponent
+    let teamName = $(scorecardTables[i]).find("h5").text();
+    teamName = teamName.split("INNINGS")[0].trim();
+    let oponentIndex = i == 0 ? 1 : 0;
+    let oponentName = $(scorecardTables[oponentIndex]).find("h5").text();
+    oponentName = oponentName.split("INNINGS")[0].trim();
+    // console.log(
+    //   `${teamName} | ${oponentName} | ${venue} | ${date} | ${result}`
+    // );
   }
-  console.log(htmlString);
+  //   console.log(htmlString);
 }
