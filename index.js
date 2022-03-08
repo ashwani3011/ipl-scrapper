@@ -39,5 +39,6 @@ function extractAllMatchScorecardLink(html) {
   for (let i = 0; i < scorecardElem.length; i++) {
     let link = $(scorecardElem[i]).attr("href");
     let fullLink = "https://www.espncricinfo.com" + link;
+    console.log(fullLink);
   }
 }
