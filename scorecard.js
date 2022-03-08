@@ -27,5 +27,16 @@ function extractMatchDetails(html) {
   let venue = matchDescArray[1].trim();
   let date = matchDescArray[2].trim();
   result = result.text();
-  console.log(venue, date, result);
+  //   console.log(venue, date, result);
+
+  // segregating the scorecard table
+
+  let scorecardTables = $(
+    ".card.content-block.match-scorecard-table .Collapsible"
+  );
+  let htmlString = "";
+  for (let i = 0; i < scorecardTables.length; i++) {
+    htmlString += $(scorecardTables[i]).html();
+  }
+  console.log(htmlString);
 }
